@@ -1126,9 +1126,60 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 
 উত্তর: y'' = (6x - x³) sin x + 6x² cos x
 ```
+---
+
+### শিক্ষক নোট (Teacher's Notes)
+
+#### ৭.১ সীমার জন্য সাধারণ ভুল
+- **শূন্যতাভিত্তিক ভুল**: 0/0 রূপে সরাসরি 0 লিখা যাওয়া। সবসময় সরলীকরণ বা মানক সীমা ব্যবহার করুন।
+- **ঘাতভুল**: lim(x→0) xⁿ = 0 (n > 0), কিন্তু lim(x→0) 1/x² = ∞, শূন্যে ঊসره নেয় না।
+
+#### ৭.২ sin x/x সীমার জন্য সাধারণ ভুল
+- **কার্তের মান ভুল**: lim(x→0) sin(3x)/x = 3 নয়, বরং অনেক শিক্ষার্থীরা ভুলভাবে 1 উত্তর দেয়।
+- **কৌশল**: সবসময় kx/x রূপে কে k × lim(x→0) sin(x)/x = k × 1 = k হিসাব করুন।
+
+#### ৭.3 প্রথম নীতি (first principle) জন্য সাধারণ ভুল
+- **h বিতরণভুল**: [f(x+h) - f(x)]/h রুপে h বিতরণভুল হয়ে যায়।
+- **খ finished পদ ভুল**: (x+h)² = x² + 2xh + h², ন कि x² + h²।
+- **সীমাবদ্ধতা**: h→0 হলে h-containing পদগুলো ব desaparearing হয়, ত denen h = 0 বসান আগে expression কে h से factor করুন।
+
+#### ৭.4 পণ্য/ভাগ/চেইন règle için সাধারণ ভুল
+- **পণ্য_rule ভুল**: (uv)' = u'v + uv', নが u'v' (গুণ করবেন না)।
+- **ভাগ_rule ভুল**: (u/v)' = (u'v - uv')/v², নが (u'v)/v²।
+- **চেইন_rule ভুল**: d/dx f(g(x)) = f'(g(x)) · g'(x), ন가 f'(x) · g'(x)।
+
+#### ৭.5 উচ্চতর অবকলন (higher-order derivatives) এর জন্য সাধারণ ভুল
+- **ধাপ ধóra ভুল**: y'' নির্ণয়ে প্রথম অবকলন y' কে আবার differentiates করতে হবে, কে y' কে ধরে রাখতে হয় না।
+- **চিহ্ন ভুল**: cos x এর অবকলন -sin x, সে +sin x নহে।sigmoid sign errors ব্যড়ে যায়।
 
 ---
 
+### সাধারণ ভুল ও সমাধান (Common Mistakes & Solutions)
+
+| সংখ্যা | mistakes | সঠিক পদ্ধতি | solution |
+|--------|----------|----------------|----------|
+| 1 | lim(x→2) (x²-4)/(x-2) কে 0/0 হওয়া ছাড়া মূল মান বাসায় | x²-4 = (x-2)(x+2) করুন, then cancel (x-2) | 4 |
+| 2 | lim(x→0) sin(5x)/x = 5 না, 1 | 5 × lim(x→0) sin(5x)/(5x) = 5 × 1 = 5 | 5 |
+| 3 | f(x) = x³ হলে f'(x) = 3x, না 3x² | d/dx xⁿ = nxⁿ⁻¹ কে সঠিকভাবে ব্যবহার | 3x² |
+| 4 | (x² sin x)' = 2x sin x + x² cos x, না | পণ্য_rule: (x²)' sin x + x² (sin x)' = 2x sin x + x² cos x | 2x sin x + x² cos x |
+| 5 | y = x³ sin xের y'' = 6x sin x, না | দ্বিতীয় অবকলন নির্ণয় করলে 6x sin x + 6x² cos x - x³ sin x | (6x - x³) sin x + 6x² cos x |
+
+---
+
+### পরীক্ষার টিপস (Exam Tips)
+
+1. **সীমার জন্য**: যেকোনো 0/0 রূপে পাওয়ার পরে অবিলম্বেই সরলীকরণ চেষ্টা করুন। সরলীকরণ না হলে lim(x→a) f(x)/g(x) কে ল適用ôpital's rule (যদি প Ultimate allowed) ব্যবহার করতে পারেন।
+
+2. **অবকলন জন্য**: প্রথম নীতি (first principle) Questionsে সময় adequate time নিন, ধাপে ধাপে f(x+h) নির্ণয় করুন।
+
+3. **উচ্চতর অবকলন জন্য**: y'' নির্ণয়েপ্রথম y' কে আবার differentiate কর remembered দরকার। প fulfilers sign errors এড়াতে -(sin x) = -sin x careful বসান।
+
+4. **সময় ব্যবস্থা**: পরীক্ষায় product/quotient/chain_rule Questions moderate time লাগে, ত каждойQuestion কে thoroughly analyze করুন প prime fatal Mistakes এড়াতে।
+
+5. **ধাপ showcase**: Each step কে neatly書く (write) এবং formulas কে proper notationে লিখুন। দুটো শুধু উত্তর না দিলে কিছু half marks পেতে পারেন যদি ধাপ-verifiable হয়।
+
+---
+ 
 ## অধ্যায় ৮: সমষ্টি (Integration) - ফর্মা ৩৮-৪২
 
 ### শিক্ষণ লক্ষ্য
