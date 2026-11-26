@@ -1,1 +1,24 @@
-*.pdf
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OCR intermediate images (large PNG files)
+*_page*.png
+page*_*.png
+hm_page*.png
+math_page*.png
+
+# Python cache
+__pycache__/
+*.pyc
