@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCTB SSC গণিত ও উচ্চতর গণিত - শিক্ষক গাইড</title>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #2c5f8a;
+            --accent: #e8a838;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --border: #e2e8f0;
+            --success: #38a169;
+            --info: #3182ce;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --primary: #4299e1;
+                --secondary: #63b3ed;
+                --accent: #f6d55c;
+                --bg: #1a202c;
+                --card-bg: #2d3748;
+                --text: #f7fafc;
+                --text-light: #cbd5e0;
+                --border: #4a5568;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(30, 58, 95, 0.3);
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .book-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .book-card.math { border-top: 4px solid var(--info); }
+        .book-card.higher-math { border-top: 4px solid var(--success); }
+
+        .book-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .book-card.math .book-icon {
+            background: linear-gradient(135deg, #3182ce, #2b6cb0);
+            color: white;
+        }
+
+        .book-card.higher-math .book-icon {
+            background: linear-gradient(135deg, #38a169, #2f855a);
+            color: white;
+        }
+
+        .book-card h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .book-card .book-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .nav-link svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .chapter-list {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .chapter-list h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
+        }
+
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+
+        .chapter-item .chapter-name {
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .chapter-item .chapter-forma {
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            background: var(--bg);
+            border-radius: 8px;
+            color: var(--primary);
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 3rem 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+            .book-card { padding: 1.5rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 NCTB SSC ২০২৬</h1>
+            <p>গণিত ও উচ্চতর গণিত ৯ম-১০ম শ্রেণি — শিক্ষক গাইড সংকলন</p>
+            <span class="badge">শিক্ষক-বান্ধব রিসোর্স পোর্টাল</span>
+        </header>
+
+        <div class="books-grid">
+            <!-- গণিত বই -->
+            <div class="book-card math">
+                <div class="book-icon">📐</div>
+                <h2>গণিত ৯ম-১০ম শ্রেণি</h2>
+                <p class="book-meta">NCTB ২০২৬ সংস্করণ (BV) • ৮ অধ্যায় • ৪৫ ফর্মা</p>
+
+                <div class="nav-links">
+                    <a href="TUTOR_GUIDE_MATH.md" class="nav-link" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        পূর্ণ শিক্ষক গাইড (Markdown)
+                    </a>
+                    <a href="README_MATH.md" class="nav-link" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        দ্রুত রেফারেন্স (README)
+                    </a>
+                </div>
+
+                <div class="chapter-list">
+                    <h3>অধ্যায় সংক্ষেপ</h3>
+                    <div class="chapter-item">
+                        <span class="chapter-name">১. বাস্তব সংখ্যা</span>
+                        <span class="chapter-forma">ফর্মা ১-৫</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">২. সেট ও ফাংশন</span>
+                        <span class="chapter-forma">ফর্মা ৬-১২</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৩. বীজগাণিতিক রাশি</span>
+                        <span class="chapter-forma">ফর্মা ১৩-২১</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৪. সূচক ও লগারিদম</span>
+                        <span class="chapter-forma">ফর্মা ২২-২৮</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৫. রৈখিক সমীকরণ</span>
+                        <span class="chapter-forma">ফর্মা ২৯-৩৩</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৬. অনুপাত ও সমানুপাত</span>
+                        <span class="chapter-forma">ফর্মা ৩৪-৩৮</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৭. জ্যামিতি</span>
+                        <span class="chapter-forma">ফর্মা ৩৯-৪৩</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৮. পরিসংখ্যান</span>
+                        <span class="chapter-forma">ফর্মা ৪৪-৪৫</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- উচ্চতর গণিত বই -->
+            <div class="book-card higher-math">
+                <div class="book-icon">📊</div>
+                <h2>উচ্চতর গণিত ৯ম-১০ম শ্রেণি</h2>
+                <p class="book-meta">NCTB ২০২৬ সংস্করণ (BV) • ৮ অধ্যায় • ৪২ ফর্মা</p>
+
+                <div class="nav-links">
+                    <a href="TUTOR_GUIDE_HIGHER_MATH.md" class="nav-link" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                        পূর্ণ শিক্ষক গাইড (Markdown)
+                    </a>
+                    <a href="README_HIGHER_MATH.md" class="nav-link" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        দ্রুত রেফারেন্স (README)
+                    </a>
+                </div>
+
+                <div class="chapter-list">
+                    <h3>অধ্যায় সংক্ষেপ</h3>
+                    <div class="chapter-item">
+                        <span class="chapter-name">১. সেট ও ফাংশন</span>
+                        <span class="chapter-forma">ফর্মা ১-৫</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">২. বীজগাণিতিক রাশি</span>
+                        <span class="chapter-forma">ফর্মা ৬-১২</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৩. জ্যামিতি</span>
+                        <span class="chapter-forma">ফর্মা ১৩-১৭</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৪. ত্রিকোণমিতি</span>
+                        <span class="chapter-forma">ফর্মা ১৮-২২</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৫. বেন أرب্যাবলি</span>
+                        <span class="chapter-forma">ফর্মা ২৩-২৭</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৬. বহুপদী সমীকরণ</span>
+                        <span class="chapter-forma">ফর্মা ২৮-৩২</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৭. সীমা ও অবকলন</span>
+                        <span class="chapter-forma">ফর্মা ৩৩-৩৭</span>
+                    </div>
+                    <div class="chapter-item">
+                        <span class="chapter-name">৮. সমষ্টি</span>
+                        <span class="chapter-forma">ফর্মা ৩৮-৪২</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Quick Access Section -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1.5rem; text-align: center;">⚡ দ্রুত অ্যাক্সেস</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <a href="TUTOR_GUIDE_MATH.md#অধ্যায়-১-বাস্তব-সংখ্যা-real-numbers---ফর্মা-১-৫" target="_blank" class="nav-link" style="justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    গণিত: বাস্তব সংখ্যা
+                </a>
+                <a href="TUTOR_GUIDE_MATH.md#অধ্যায়-২-সেট-ও-ফাংশন-set-and-function---ফর্মা-৬-১২" target="_blank" class="nav-link" style="justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    গণিত: সেট ও ফাংশন
+                </a>
+                <a href="TUTOR_GUIDE_HIGHER_MATH.md#অধ্যায়-১-সেট-ও-ফাংশন-set-and-function---ফর্মা-১-৫" target="_blank" class="nav-link" style="justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    উচ্চতর: সেট ও ফাংশন
+                </a>
+                <a href="TUTOR_GUIDE_HIGHER_MATH.md#অধ্যায়-৭-সীমা-ও-অবকলন-limit-and-differentiation---ফর্মা-৩৩-৩৭" target="_blank" class="nav-link" style="justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    উচ্চতর: সীমা ও অবকলন
+                </a>
+                <a href="TUTOR_GUIDE_HIGHER_MATH.md#সংযোজন-ফর্মা-অনুযায়ী-সপ্তাহিক-পাঠ-পরিকল্পনা-sample-weekly-plan" target="_blank" class="nav-link" style="justify-content: center;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    সপ্তাহিক পাঠ পরিকল্পনা
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Info Section -->
+        <section style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 2rem;">
+            <h2 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem;">📖 ব্যবহারিক নির্দেশনা</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">🖥️ কম্পিউটারে</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>• VS Code / Obsidian / Typora-এ .md ফাইল খুলুন</li>
+                        <li>• GitHub-এ আপলোড করে Raw ভিউ ব্যবহার করুন</li>
+                        <li>• প্রিন্ট করতে চাইলে Export as PDF করুন</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">📱 মোবাইলে</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>• GitHub Pages এ হোস্ট করুন</li>
+                        <li>• Markdown Viewer অ্যাপ ব্যবহার করুন</li>
+                        <li>• ব্রাউজারে INDEX.html খুলুন</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem; color: var(--primary);">🖨️ প্রিন্ট/পিডিএফ</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>• ব্রাউজারের Print → Save as PDF</li>
+                        <li>• Pandoc ব্যবহার করে কনভার্ট করুন</li>
+                        <li>• পৃষ্ঠা সেটআপ: A4, Margin 20mm</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>তैयারকৃত: <strong>Claude Code AI Assistant</strong> | তারিখ: ২০২৬-১১-২৬ | সংস্করণ ১.০</p>
+            <p style="margin-top: 0.5rem;">
+                বই：《NCTB ২০২৬ সংস্করণ》 |
+                <a href="https://www.nctb.gov.bd" target="_blank">NCTB অফিসিয়াল ওয়েবসাইট</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+                এই গাইডগুলো শিক্ষকদের শিক্ষণ সুবিধার্থে তৈরি করা হয়েছে। পাঠক্রম আপডেট হলে সংশোধন করুন।
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
