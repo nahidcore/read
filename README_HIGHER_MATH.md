@@ -129,3 +129,48 @@ GitHub-এ আপলোড করে Raw ফাইল বা GitHub Pages দি
 **তैयারকৃত**: Claude Code AI Assistant  
 **তারিখ**: ২০২৬-১১-২৬  
 **সংস্করণ**: ১.০
+## 📝 পরীক্ষা preparation checklist (পরীক্ষা প্রস্তুতি চেকলিস্ট)
+
+### অধ্যায় ৭: সীমা ও অবকলন (Limit and Differentiation) - ফর্মা ৩৩-৩七章
+
+#### সীমার জন্য preparation (Limit Preparation):
+- [ ] সীমার সংজ্ঞা বোঝাlimits (definition of limit) clara huseti
+- [ ] 0/0, ∞/∞ রূপের সমস্যা সমাধানের প্র্যাকটিস
+- [ ] ল'Hôpital's rule কে কখন ব্যবহার করবে সSonic বোঝা
+- [ ] ফ্যাক্টরিং ও rationalisation সরলীকরণ technique
+- [ ] এক-sided limit (দানামুখী সীমা) বোঝা
+- [ ] সীমার গ্রাফের মাধ্যমে বোঝাlimitsvisually
+
+#### অবকলন জন্য preparation (Differentiation Preparation):
+- [ ] প্রথম নীতি (first principle) থেকে derivative নির্ণয় করার প্র্যাকটিস
+- [ ] পণ্য নিয়ম (product rule), ভাগ নিয়ম (quotient rule), চেইন_rule (chain rule)’da প্র্যাকটিস
+- [ ] উচ্চতর অবকলন (second derivative, third derivative) নির্ণয় technique
+- [ ] সমস্তofil inverse trigonometric function derivative formula Memorize
+- [connected related rates problems演練]
+- [ ] সহজ ফাংশন থেকে শুরু করে জটিল composite function কাজ করা
+
+#### সাধারণ ভুল এড়াতে (Avoid Common Mistakes):
+- [ ] Sign error এড়াতে carefully calculation করুন
+- [ ] Chain rule忘了 inner function derivative নির্ণয় করতে ভুল না
+- [ ] Product/quotient rule middle terms কে skip না
+- [ ] differentiation boundary condition (x→0, x→∞) check করতে হবে
+- [ ] Trigonometric limits special values (sin x/x → 1, cos 0 → 1) Remember
+
+#### পরীক্ষা টিপস (Exam Tips):
+- [ ] শুরুতে 1-2 মিনিট Questions precisely read করুন
+- [ ] cada Question কে appropriate formula বা methodidentify করobar
+- [ ] stepwise solving করতে full marks পেতে সম্ভব হবে
+- [ ] Calculation mistakes avoided করতে শেষে answer পুন:verify করুন
+- [ ] Time management: derivative questions moderate time লাগে, ত securing early marks
+- [ ] If stuck, limit problems পরিবর্তন করতে l'Hôpital's rule বা factoring techniqueoggi
+
+#### প্রশ্নsort (Question Types to Practice):
+- [ ] Algebraic limits (polynomial, rational functions)
+- [ ] Trigonometric limits (sin, cos, tan related)
+- [ ] Limits at infinity (x→∞, x→-∞)
+- [ ] First principle differentiation problems
+- [ ] Product/quotient/chain rule mixed problems
+- [ ] Higher-order derivatives
+- [ ] Related rates application problems
+
+---
