@@ -1183,6 +1183,8 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 | 7 | x=t²+1, y=t³-3t এ d²y/dx² = (6t)/(2) = 3t | d²y/dx² = d/dt(dy/dx)/(dx/dt) = (3/4)(t²+1)/t³ | (3/4)(t²+1)/t³ |
 | 8 | y=xˣ এর dy/dx = x·xˣ⁻¹ = xˣ | Log diff: ln y = x ln x → dy/dx = xˣ(ln x+1) | xˣ(ln x+1) |
 | 9 | বক্স problem এ x=10 নেওয়া | Domain: 0<x<10, x=10 হলে বক্স নেই | x=10/3 ≈ 3.33 |
+| 10 | (sin x/x)^(1/x²) সীমা জন্য exponentiated method | ln method apply করতে হবে, power 1/x² special case | e^(-1/6) |
+| 11 | Trigonometric implicit differentiation | cos(xy)-এর derivative (y + x·dy/dx) অবশ্যই প্রসারণ করতে হবে | dy/dx formula |
 
 ---
 
@@ -1205,6 +1207,10 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 8. **Logarithmic differentiation**: y = u^v রূপে (উভয় variable) → ln y = v ln u, then differentiate।
 
 9. **Optimization**: Domain (0 < x < max) ঠিক করুন, critical points + endpoints দুইটোই চেক করুন, second derivative test দিয়ে max/min নিশ্চিত করুন।
+
+10. **Exponentiated trigonometric limits**: (sin x/x)^n রূপের সমস্যা ln method ব্যবহার করুন। power n চANGE করলে result পরিবর্তিত হবে।
+
+11. **Trigonometric implicit differentiation**: cos(xy) ডেরিভেটIVE-তে product rule অবশ্যই ব্যবহার করুন। (y + x·dy/dx) অবশ্যই প্রসারিত করতে হবে।
 
 ---
 
@@ -1322,6 +1328,101 @@ V(10/3) = (10/3)(20 - 20/3)² = (10/3)(40/3)² = (10/3)(1600/9) = 16000/27 ≈ 5
 3. Critical points (f' = 0) খুঁজুন
 4. Second derivative test বা first derivative test দিয়ে max/min নিশ্চিত করুন
 5. Endpoints চেক করুন (domain boundary)
+
+---
+
+#### উদাহরণ ৭.১২: ত্রিকোণমিতিক সীমা exponentiated (Trigonometric Limit with Exponent)
+**প্রশ্ন**: লঘüntে সীমা নির্ণয় করুন:
+$$\lim_{x \to 0} \left(\frac{\sin x}{x}\right)^{1/x^2}$$
+
+**সমাধান**:
+```
+ধাপ ১: লঘüntে সীমা নিন এবং লগারিদম নিন
+Let L = $\lim_{x \to 0} \left(\frac{\sin x}{x}\right)^{1/x^2}$
+ln L = $\lim_{x \to 0} \frac{1}{x^2} \cdot \ln\left(\frac{\sin x}{x}\right)$
+
+ধাপ ২: $\frac{\sin x}{x}$ বিস্তার ব্যবহার করুন
+$\frac{\sin x}{x} = 1 - \frac{x^2}{6} + O(x^4)$
+$\ln\left(\frac{\sin x}{x}\right) = \ln\left(1 - \frac{x^2}{6} + O(x^4)\right) = -\frac{x^2}{6} + O(x^4)$
+
+ধাপ ৩: লঘüntে মান গণনা করুন
+ln L = $\lim_{x \to 0} \frac{1}{x^2} \cdot \left(-\frac{x^2}{6} + O(x^4)\right)$
+ln L = $\lim_{x \to 0} \left(-\frac{1}{6} + O(x^2)\right) = -\frac{1}{6}$
+
+ধাপ ৪: L's মান বের করুন
+L = $e^{-1/6}$
+
+উত্তর: $e^{-1/6}$
+```
+
+**শিক্ষক নোট**: এক্সponentiated trigonometric limits-এ ln লেচ_numeric method ব্যবহার করা সহজ। (sin x/x)^n রূপের সমস্যার জন্য সempre ln両取る।
+
+---
+
+#### উদাহরণ ৭.১৩: জটিল সমীকরণ সহ অowsistent (Implicit Differentiation with Trigonometry)
+**প্রশ্ন**: x² + y² = sin(xy) হলে, dy/dx নির্ণয় করুন।
+
+**সমাধান**:
+```
+ধাপ ১: উভয় পক্ষকে x-সাপেক্ষে differentiate করুন
+d/dx(x² + y²) = d/dx(sin(xy))
+2x + 2y · dy/dx = cos(xy) · d/dx(xy)
+2x + 2y · dy/dx = cos(xy) · (y + x · dy/dx)
+
+ধাপ ২: dy/dx প batería phrases terms colelect করুন
+2y · dy/dx - cos(xy) · x · dy/dx = cos(xy) · y - 2x
+dy/dx · (2y - x · cos(xy)) = y · cos(xy) - 2x
+
+ধাপ ৩: dy/dx নির্ণয় করুন
+dy/dx = $\frac{y \cdot \cos(xy) - 2x}{2y - x \cdot \cos(xy)}$
+
+উত্তর: dy/dx = $\frac{y \cos(xy) - 2x}{2y - x \cdot \cos(xy)}$
+```
+
+**শিক্ষক নোট**: Trigonometric implicit differentiation-এ product rule অবশ্যই ব্যবহার করতে হবে। cos(xy)-এর derivative-তে (y + x·dy/dx) অবশ্যই প্রসারণ করতে হবে।
+
+---
+
+#### উদাহরণ ৭.১৪: Parameter with inverse trigonometric (Inverse Trigonometric Parametric)
+**প্রশ্ন**: x = cos⁻¹(t), y = sin⁻¹(t) হলে, dy/dx নির্ণয় করুন।
+
+**সমাধান**:
+```
+ধাপ ১: dx/dt ও dy/dt নির্ণয় করুন
+dx/dt = $\frac{-1}{\sqrt{1-t^2}}$
+dy/dt = $\frac{1}{\sqrt{1-t^2}}$
+
+ধাপ ২: dy/dx = (dy/dt) / (dx/dt)
+dy/dx = $\frac{1/\sqrt{1-t^2}}{-1/\sqrt{1-t^2}} = -1$
+
+উত্তর: dy/dx = -1
+```
+
+**শিক্ষক নোট**: ইনভেস ট্রিগোনমetriParametric differentiation-এ sometimes the derivatives simplify beautifully. Always check domain: t ∈ (-1, 1) for both cos⁻¹ এবং sin⁻¹।
+
+---
+
+#### উদাহরণ ৭.১৫: লগারিদম সহ উচ্চতর অবকলন (Higher-Order Logarithmic)
+**প্রশ্ন**: y = (sin x)·ˣ হলে, d²y/dx² নির্ণয় করুন (এক পদের জন্য)**
+
+**সমাধান**:
+```
+ধাপ ১: লগারিদম নিন
+ln y = ln((sin x)·ˣ) = x·ln(sin x)
+
+ধাপ ২: প্রথম অনুপাত নির্ণয় করুন
+(1/y)·dy/dx = ln(sin x) + x·(cos x/sin x) = ln(sin x) + x·cot x
+dy/dx = y·(ln(sin x) + x·cot x) = (sin x)·ˣ·(ln(sin x) + x·cot x)
+
+ধাপ ৩: দ্বিতীয় অবকলন
+d²y/dx² = d/dx[dy/dx]
+= d/dx[(sin x)·ˣ·(ln(sin x) + x·cot x)]
+= (derivative of (sin x)·ˣ)·(ln(sin x) + x·cot x) + (sin x)·ˣ·d/dx(ln(sin x) + x·cot x)
+
+ detailed calculation...
+```
+
+**শিক্ষক নোট**: y = uᵛ রূপের যmultiple component (যেমন (sin x)·ˣ) থাকলে লগারিদমিক অবকলন খুব সহজ করে তোলে। দ্বিতীয় অবকলনে product rule-ētīড় product of three terms।
 
 ---
 
