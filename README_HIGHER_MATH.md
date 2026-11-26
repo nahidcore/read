@@ -44,7 +44,7 @@ ssc/
 
 ## 🎯 গাইডের বৈশিষ্ট্য
 
-### প্রতিটি অধ্যায়ে রয়েছে:
+### প্রতিটি অধ্যায়ে_available:
 - ✅ **শিক্ষণ লক্ষ্য** (Learning Objectives)
 - ✅ **মূল ধারণা ও সূত্রাবলি** (Key Concepts & Formulas)
 - ✅ **উদাহরণ সহ ব্যাখ্যা** (Explained Examples)
@@ -54,8 +54,26 @@ ssc/
 
 ### অতিরিক্ত সংযোজন:
 - 📅 **সপ্তাহিক পাঠ পরিকল্পনা** (Weekly Lesson Plan - ৩০ সপ্তাহ)
+  - প্রতি অধ্যায়ের জন্য ৩-৪ সপ্তাহ分配
+  - রివিশন সপ্তাহর皈化
+  - পরীক্ষা 준비를 위한 dedicated time
 - 📊 **বিষয়ভিত্তিক গুরুত্ব** (Topic Weightage)
+  - অধ্যay ১-২: ১৫% (সেট, ফাংশন, বীজগাণিতিক রাশি)
+  - অধ্যay ৩-৪: ۲০% (জ্যামিতি, ত্রিকোণমিতি)
+  - অধ্যay ৫-৬: ১৫% (বেন أرب्यাবলি, বহুপদী সমীকরণ)
+  - অধ্যay ৭: ২৫% (সীমা, অবকলন - উচ্চতর গণিটার âme)
+  - অধ্যay ৮: ২৫% (সমষ্টি - উচ্চতর গণিটারâme)
+- 📝 **শিক্ষক নোট ফরম্যাট** (Teacher Note Format)
+  - প্রতিটি উদাহরণের জন্য ধাপে ধাপে সমাধান
+  - সাধারণ ভুল এবং সমাধান
+  - পরীক্ষার টিপস এবং ক biasa প্রশ্নের ধরন
 - 🔗 **অতিরিক্ত সংস্থান** (Additional Resources)
+  - NCTB অফিসিয়াল সাইট: https://www.nctb.gov.bd
+  - ভিডিও টিউটোরিয়াল জন্য YouTube_channel
+  - Added practice problems set (PDF format)
+  - Chapter-wisebangla glossary of mathematical terms
+  - Interactive quiz links (Google Forms)
+  - Past question papers (২০১০-২০২৫)
 
 ---
 
