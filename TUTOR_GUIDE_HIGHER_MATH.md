@@ -1149,8 +1149,24 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 - **চেইন_rule ভুল**: d/dx f(g(x)) = f'(g(x)) · g'(x), ন가 f'(x) · g'(x)।
 
 #### ৭.5 উচ্চতর অবকলন (higher-order derivatives) এর জন্য সাধারণ ভুল
-- **ধাপ ধóra ভুল**: y'' নির্ণয়ে প্রথম অবকলন y' কে আবার differentiates করতে হবে, কে y' কে ধরে রাখতে হয় না।
-- **চিহ্ন ভুল**: cos x এর অবকলন -sin x, সে +sin x নহে।sigmoid sign errors ব্যড়ে যায়।
+- **ধাপ ধোরা ভুল**: y'' নির্ণয়ে প্রথম অবকলন y' কে আবার differentiate করতে হবে, কে y' কে ধরে রাখতে হয় না।
+- **চিহ্ন ভুল**: cos x এর অবকলন -sin x, সে +sin x নহে। sign errors বেড়ে যায়।
+
+#### ৭.৬ স্পষ্ট না করে প্রস্তাবিত অবকলন (Implicit Differentiation) এর জন্য সাধারণ ভুল
+- **Chain rule ভুল**: y²-এর অবকলন 2y নয়, বরং 2y dy/dx। y-কে x-র ফাংশন মনে রাখুন।
+- **dy/dx ভুল পাশে**: সমীকরণ পুনর্বিন্যাস করার সময় dy/dx-এর coefficient সঠিক রাখুন।
+
+#### ৭.৭ প্যারামেট্রিক অবকলন (Parametric Differentiation) এর জন্য সাধারণ ভুল
+- **দ্বিতীয় অবকলন ভুল**: d²y/dx² = d²y/dt² / d²x/dt² নয়। সঠিক: d/dt(dy/dx) / (dx/dt)।
+- **dx/dt = 0 বিন্দু**: প্যারামেট্রিকে স্পর্শক উডমুখ (vertical) হয়, সেখানে dy/dx অনির্দিষ্ট।
+
+#### ৭.৮ লগারিদমিক অবকলন (Logarithmic Differentiation) এর জন্য সাধারণ ভুল
+- **Domain ভুল**: y > 0 নিশ্চিত করুন ln y लेने আগে। xˣ-এর জন্য x > 0।
+- **পণ্য rule ভুল**: x ln x-এর অবকলন ln x + 1, নয় শুধু ln x।
+
+#### ৭.৯ অনুকূলন (Optimization) এর জন্য সাধারণ ভুল
+- **Domain উপেক্ষা**: Endpoint (boundary) চেক না করা। বাস্তব সমস্যায় x > 0 বা upper bound থাকে।
+- **Second derivative test ভুল**: f'' > 0 → Minimum, f'' < 0 → Maximum (অব territories ultra opposite)।
 
 ---
 
@@ -1163,6 +1179,10 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 | 3 | f(x) = x³ হলে f'(x) = 3x, না 3x² | d/dx xⁿ = nxⁿ⁻¹ কে সঠিকভাবে ব্যবহার | 3x² |
 | 4 | (x² sin x)' = 2x sin x + x² cos x, না | পণ্য_rule: (x²)' sin x + x² (sin x)' = 2x sin x + x² cos x | 2x sin x + x² cos x |
 | 5 | y = x³ sin xের y'' = 6x sin x, না | দ্বিতীয় অবকলন নির্ণয় করলে 6x sin x + 6x² cos x - x³ sin x | (6x - x³) sin x + 6x² cos x |
+| 6 | x²+y²=25 এ dy/dx = 2x/2y = x/y | Implicit: 2x+2y dy/dx=0 → dy/dx=-x/y | -x/y |
+| 7 | x=t²+1, y=t³-3t এ d²y/dx² = (6t)/(2) = 3t | d²y/dx² = d/dt(dy/dx)/(dx/dt) = (3/4)(t²+1)/t³ | (3/4)(t²+1)/t³ |
+| 8 | y=xˣ এর dy/dx = x·xˣ⁻¹ = xˣ | Log diff: ln y = x ln x → dy/dx = xˣ(ln x+1) | xˣ(ln x+1) |
+| 9 | বক্স problem এ x=10 নেওয়া | Domain: 0<x<10, x=10 হলে বক্স নেই | x=10/3 ≈ 3.33 |
 
 ---
 
@@ -1178,7 +1198,133 @@ y'' = (6x sin x + 3x² cos x) + (3x² cos x - x³ sin x)
 
 5. **ধাপ showcase**: Each step কে neatly書く (write) এবং formulas কে proper notationে লিখুন। দুটো শুধু উত্তর না দিলে কিছু half marks পেতে পারেন যদি ধাপ-verifiable হয়।
 
+6. **Implicit differentiation**: y-র প্রতিটি term-এ dy/dx বসাতে ভুলবেন না। x²+y²=25 → 2x+2y(dy/dx)=0।
+
+7. **Parametric differentiation**: d²y/dx² ≠ (d²y/dt²)/(d²x/dt²)। সঠিক: d/dt(dy/dx) / (dx/dt)।
+
+8. **Logarithmic differentiation**: y = u^v রূপে (উভয় variable) → ln y = v ln u, then differentiate।
+
+9. **Optimization**: Domain (0 < x < max) ঠিক করুন, critical points + endpoints দুইটোই চেক করুন, second derivative test দিয়ে max/min নিশ্চিত করুন।
+
 ---
+
+#### উদাহরণ ৭.৮: স্পষ্ট না করে প্রস্তাবিত অবকলন (Implicit Differentiation)
+**প্রশ্ন**: x² + y² = 25 হলে, dy/dx নির্ণয় করুন। অতএব y = 3 হলে x = 4 পাওয়া গেলে স্পর্শক রেখার ঢাল নির্ণয় করুন।
+
+**সমাধান**:
+```
+ধাপ ১: উভয় পক্ষকে x-সাপেক্ষে differentiate করুন
+d/dx(x² + y²) = d/dx(25)
+2x + 2y · dy/dx = 0  [y is function of x, chain rule: d/dx(y²) = 2y dy/dx]
+
+ধাপ ২: dy/dx নির্ণয় করুন
+2y · dy/dx = -2x
+dy/dx = -x/y
+
+ধাপ ৩: বিন্দু (4, 3) এ ঢাল নির্ণয় করুন
+dy/dx|_(4,3) = -4/3
+
+ধাপ ৪: স্পর্শক রেখার সমীকরণ
+y - 3 = (-4/3)(x - 4)
+3y - 9 = -4x + 16
+4x + 3y = 25
+
+উত্তর: dy/dx = -x/y, স্পর্শক: 4x + 3y = 25
+```
+
+**শিক্ষক নোট**: Implicit differentiation-এ y-কে x-র ফাংশন ধরে chain rule ব্যবহার করুন। প্রতিটি y-term এর সাথে dy/dx বসাবে।
+
+---
+
+#### উদাহরণ ৭.৯: প্যারামেট্রিক অবকলন (Parametric Differentiation)
+**প্রশ্ন**: x = t² + 1, y = t³ - 3t হলে, dy/dx এবং d²y/dx² নির্ণয় করুন।
+
+**সমাধান**:
+```
+ধাপ ১: dx/dt ও dy/dt নির্ণয় করুন
+dx/dt = 2t
+dy/dt = 3t² - 3
+
+ধাপ ২: dy/dx = (dy/dt) / (dx/dt)
+dy/dx = (3t² - 3) / (2t) = (3/2)(t - 1/t)
+
+ধাপ ৩: d²y/dx² = d/dt(dy/dx) / (dx/dt)
+Let u = dy/dx = (3/2)(t - t⁻¹)
+du/dt = (3/2)(1 + t⁻²) = (3/2)(1 + 1/t²) = (3/2)(t² + 1)/t²
+
+d²y/dx² = (du/dt) / (dx/dt) = [(3/2)(t² + 1)/t²] / (2t)
+        = (3/4)(t² + 1)/t³
+
+উত্তর: dy/dx = (3/2)(t - 1/t), d²y/dx² = (3/4)(t² + 1)/t³
+```
+
+**শিক্ষক নোট**: প্যারামেট্রিকে dy/dx = (dy/dt)/(dx/dt)। দ্বিতীয় অবকলনের জন্য d/dt(dy/dx) কে আবার dx/dt দিয়ে ভাগ করুন।
+
+---
+
+#### উদাহরণ ৭.১০: লগারিদমিক অবকলন (Logarithmic Differentiation)
+**প্রশ্ন**: y = xˣ (x > 0) হলে, dy/dx নির্ণয় করুন।
+
+**সমাধান**:
+```
+ধাপ ১: উভয় পক্ষের লগারিদম নিন
+ln y = ln(xˣ) = x ln x
+
+ধাপ ২: উভয় পক্ষকে x-সাপেক্ষে differentiate করুন
+d/dx(ln y) = d/dx(x ln x)
+(1/y) · dy/dx = ln x + x · (1/x)  [পণ্য rule: (x)'ln x + x(ln x)']
+(1/y) dy/dx = ln x + 1
+
+ধাপ ৩: dy/dx নির্ণয় করুন
+dy/dx = y(ln x + 1)
+dy/dx = xˣ(ln x + 1)
+
+উত্তর: dy/dx = xˣ(ln x + 1)
+```
+
+**শিক্ষক নোট**: y = uᵛ রূপের ফাংশনে (উভয়ই x-র ফাংশন) লগারিদমিক অবকলন সবচেয়ে সহজ। y = xˣ, y = (sin x)ˣ, y = x^(sin x) ইত্যাদির জন্য কাজে লাগে।
+
+---
+
+#### উদাহরণ ৭.১১: অনুকূলন সমস্যা (Optimization - Maxima/Minima)
+**প্রশ্ন**: একটি বর্গাকার কাগজের আকার 20 cm × 20 cm। প্রতিটি কোণ থেকে একই আকারের বর্গাকার টুকরো কেটে বাকি অংশটি মোড়া দিয়ে খোলা বক্স বানানো হবে। বক্সের বড়তম আয়তন কত এবং কত বড় বর্গ কেটে নিতে হবে?
+
+**সমাধান**:
+```
+ধাপ ১: ভেরিয়েবল সংজ্ঞা
+প্রতিটি বর্গের পার্শ্ব = x cm (0 < x < 10)
+বক্সের দৈর্ঘ্য = 20 - 2x
+বক্সের প্রস্থ = 20 - 2x
+বক্সের উচ্চতা = x
+
+ধাপ ২: আয়তন ফাংশন
+V(x) = x(20 - 2x)² = x(400 - 80x + 4x²) = 4x³ - 80x² + 400x
+
+ধাপ ৩: অভিবন্ধন থেকে সমালোচনামূলক বিন্দু
+V'(x) = 12x² - 160x + 400 = 0
+3x² - 40x + 100 = 0
+(3x - 10)(x - 10) = 0
+x = 10/3 বা x = 10 (x = 10 অসম্ভব, বক্স থাকবে না)
+
+ধাপ ৪: দ্বিতীয় অবকলন test
+V''(x) = 24x - 160
+V''(10/3) = 80 - 160 = -80 < 0 → Highest point (Maximum)
+
+ধাপ ৫: সর্বোচ্চ আয়তন
+V(10/3) = (10/3)(20 - 20/3)² = (10/3)(40/3)² = (10/3)(1600/9) = 16000/27 ≈ 592.59 cm³
+
+উত্তর: ১০/৩ ≈ ৩.৩৩ cm বড় বর্গ কেটে নিতে হবে, সর্বোচ্চ আয়তন = ১৬০০০/২৭ ≈ ৫৯২.৫৯ cm³
+```
+
+**শিক্ষক নোট**: Optimization-এ:
+1. Quantity-কে variable-এ প্রকাশ করুন
+2. Domain (valid range) নির্ধারিত করুন
+3. Critical points (f' = 0) খুঁজুন
+4. Second derivative test বা first derivative test দিয়ে max/min নিশ্চিত করুন
+5. Endpoints চেক করুন (domain boundary)
+
+---
+
  
 ## অধ্যায় ৮: সমষ্টি (Integration) - ফর্মা ৩৮-৪২
 
